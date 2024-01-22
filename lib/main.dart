@@ -1,4 +1,4 @@
-import 'package:cross_multiplication/views/home_screen.dart';
+import 'package:cross_multiplication/views/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }
