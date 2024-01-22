@@ -1,8 +1,10 @@
 import 'package:cross_multiplication/constants/app_colors.dart';
 import 'package:cross_multiplication/constants/app_sizes.dart';
+import 'package:cross_multiplication/routes/app_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/app_images.dart';
+import 'package:get/route_manager.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -46,7 +48,9 @@ class OnBoardingScreen extends StatelessWidget {
                           )
                       )
                   ),
-                  onPressed: () {},
+                  onPressed: (){
+                    Get.offAllNamed(RoutesManager.homeScreen);
+                  },
                   child: const Text(
                     'Get Started',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
