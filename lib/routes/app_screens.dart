@@ -7,10 +7,15 @@ class RoutesManager {
   static String homeScreen = '/home';
 
   static String getOnBoardingRoute() => onboardingScreen;
+
   static String getHomeRoute() => homeScreen;
 
   static List<GetPage> routes = [
-    GetPage(name: onboardingScreen, page: ()=> const OnBoardingScreen()),
-    GetPage(name: homeScreen, page: ()=> const HomeScreen()),
+    GetPage(name: onboardingScreen, page: () => const OnBoardingScreen()),
+    GetPage(
+        name: homeScreen,
+        page: () => const HomeScreen(),
+        transition: Transition.fade,
+        transitionDuration: const Duration(seconds: 1)),
   ];
 }

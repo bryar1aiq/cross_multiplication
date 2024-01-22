@@ -49,7 +49,7 @@ class OnBoardingScreen extends StatelessWidget {
                       )
                   ),
                   onPressed: (){
-                    Get.offAllNamed(RoutesManager.homeScreen);
+                    Get.offAllNamed(RoutesManager.getHomeRoute());
                   },
                   child: const Text(
                     'Get Started',
