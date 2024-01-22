@@ -1,13 +1,16 @@
 import 'package:cross_multiplication/components/numerator_divider_denominator.dart';
 import 'package:cross_multiplication/constants/app_images.dart';
 import 'package:cross_multiplication/constants/app_sizes.dart';
+import 'package:cross_multiplication/controllers/calculation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../constants/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final CalculationController calculationController = Get.put(CalculationController());
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -79,11 +82,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             AppSpacing.h50,
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                NumeratorDividerDenominator(),
-                Text(
+                NumeratorDividerDenominator(numeratorController: calculationController.leftNum, denominatorController: calculationController.leftDen,),
+                const Text(
                   '   =   ',
                   style: TextStyle(
                     fontSize: 30,
@@ -91,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
-                NumeratorDividerDenominator(),
+                NumeratorDividerDenominator(numeratorController: calculationController.rightNum, denominatorController: calculationController.rightDen,),
               ],
             ),
             AppSpacing.h10,
@@ -138,7 +141,12 @@ class HomeScreen extends StatelessWidget {
                       RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ))),
-              onPressed: () {},
+              onPressed: () {
+                print(calculationController.leftNum);
+                print(calculationController.leftDen);
+                print(calculationController.rightNum);
+                print(calculationController.rightDen);
+              },
               child: const Text(
                 'Calculate',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),

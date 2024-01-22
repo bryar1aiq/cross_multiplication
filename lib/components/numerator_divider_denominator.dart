@@ -1,7 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class NumeratorDividerDenominator extends StatelessWidget {
-  const NumeratorDividerDenominator({super.key});
+  final TextEditingController numeratorController;
+  final TextEditingController denominatorController;
+  const NumeratorDividerDenominator({super.key, required this.numeratorController, required this.denominatorController});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +16,13 @@ class NumeratorDividerDenominator extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 10, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: TextFormField(
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400), // Text color
-              textAlign: TextAlign.center, // Center align text
+              controller: numeratorController,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              // Text color
+              textAlign: TextAlign.center,
+              // Center align text
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.teal.shade50,
@@ -30,9 +36,9 @@ class NumeratorDividerDenominator extends StatelessWidget {
             color: Colors.black87,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 10, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: TextFormField(
+              controller: denominatorController,
               style: const TextStyle(color: Colors.black), // Text color
               textAlign: TextAlign.center, // Center align text
               decoration: InputDecoration(

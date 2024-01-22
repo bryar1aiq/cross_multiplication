@@ -14,7 +14,7 @@ class RoutesManager {
     GetPage(name: onboardingScreen, page: () => const OnBoardingScreen()),
     GetPage(
         name: homeScreen,
-        page: () => const HomeScreen(),
+        page: () => HomeScreen(),
         transition: Transition.fade,
         transitionDuration: const Duration(seconds: 1)),
   ];
