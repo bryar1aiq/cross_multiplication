@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class NumeratorDividerDenominator extends StatelessWidget {
@@ -18,6 +16,10 @@ class NumeratorDividerDenominator extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: TextFormField(
+              // keyboardType: TextInputType.number,
+              // inputFormatters: <TextInputFormatter>[
+              //   FilteringTextInputFormatter.digitsOnly,
+              // ],
               controller: numeratorController,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
               // Text color
@@ -38,6 +40,10 @@ class NumeratorDividerDenominator extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: TextFormField(
+              // keyboardType: TextInputType.number,
+              // inputFormatters: <TextInputFormatter>[
+              //   FilteringTextInputFormatter.digitsOnly,
+              // ],
               controller: denominatorController,
               style: const TextStyle(color: Colors.black), // Text color
               textAlign: TextAlign.center, // Center align text

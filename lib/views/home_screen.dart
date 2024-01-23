@@ -9,7 +9,9 @@ import 'package:get/get.dart';
 import '../constants/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
-  final CalculationController calculationController = Get.put(CalculationController());
+  final CalculationController calculationController =
+      Get.put(CalculationController());
+
   HomeScreen({super.key});
 
   @override
@@ -61,7 +63,11 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           AppSpacing.w10,
-                          SvgPicture.asset(AppImages.switchImage),
+                          InkWell(
+                              onTap: (){
+                                Get.snackbar('Future Update', 'This feature is not available yet.');
+                              },
+                              child: SvgPicture.asset(AppImages.switchImage)),
                         ],
                       ),
                     ),
@@ -85,7 +91,10 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                NumeratorDividerDenominator(numeratorController: calculationController.leftNum, denominatorController: calculationController.leftDen,),
+                NumeratorDividerDenominator(
+                  numeratorController: calculationController.leftNumController,
+                  denominatorController: calculationController.leftDenController,
+                ),
                 const Text(
                   '   =   ',
                   style: TextStyle(
@@ -94,7 +103,10 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
-                NumeratorDividerDenominator(numeratorController: calculationController.rightNum, denominatorController: calculationController.rightDen,),
+                NumeratorDividerDenominator(
+                  numeratorController: calculationController.rightNumController,
+                  denominatorController: calculationController.rightDenController,
+                ),
               ],
             ),
             AppSpacing.h10,
@@ -107,7 +119,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'X',
+                  'Ans',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w300),
                 ),
                 const Text(
@@ -119,9 +131,12 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.teal.shade50,
                   width: 120,
                   height: 60,
-                  child: const Text(
-                    '16',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+                  child: Obx(() {
+                    return Text(
+                      '${calculationController.result.value}',
+                      style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+                    );
+                  }
                   ),
                 ),
               ],
@@ -142,10 +157,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                   ))),
               onPressed: () {
-                print(calculationController.leftNum);
-                print(calculationController.leftDen);
-                print(calculationController.rightNum);
-                print(calculationController.rightDen);
+                calculationController.crossMultiplication();
               },
               child: const Text(
                 'Calculate',
