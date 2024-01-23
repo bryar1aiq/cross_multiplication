@@ -15,9 +15,7 @@ class NumeratorDividerDenominator extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: TextFormField(
-              keyboardType: const TextInputType.numberWithOptions(),
-              controller: numeratorController,
+            child: TextFormField(controller: numeratorController,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
               // Text color
               textAlign: TextAlign.center,
@@ -36,11 +34,11 @@ class NumeratorDividerDenominator extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              controller: denominatorController,
-              style: const TextStyle(color: Colors.black), // Text color
-              textAlign: TextAlign.center, // Center align text
+            child: TextFormField(controller: denominatorController,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              // Text color
+              textAlign: TextAlign.center,
+              // Center align text
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.teal.shade50,
